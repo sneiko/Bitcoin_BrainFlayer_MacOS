@@ -11,6 +11,6 @@
 #import "DaoEntityProtocol.h"
 #import "DBManager.h"
 
-@interface BTCTable<WalletEntity> : NSObject<DaoEntityProtocol>
+@interface BTCTable : NSObject<DaoEntityProtocol>
 
 @end

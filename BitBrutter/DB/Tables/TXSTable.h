@@ -11,6 +11,6 @@
 #import "DaoEntityProtocol.h"
 #import "DBManager.h"
 
-@interface TXSTable<WalletEntity> : NSObject<DaoEntityProtocol>
+@interface TXSTable : NSObject<DaoEntityProtocol>
 
 @end

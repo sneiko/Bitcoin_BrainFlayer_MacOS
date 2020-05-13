@@ -10,9 +10,9 @@
 #import <FMDB/FMDB.h>
 
 @interface WalletEntity : NSObject
-@property(assign, nonatomic) NSInteger *_id;
-@property(assign, nonatomic) NSInteger *btc;
-@property(assign, nonatomic) NSInteger *txs;
+@property(assign, nonatomic) NSNumber *_id;
+@property(assign, nonatomic) NSNumber *btc;
+@property(assign, nonatomic) NSNumber *txs;
 @property(strong, nonatomic) NSString *address;
 @property(strong, nonatomic) NSString *privateKey;
 @property(strong, nonatomic) NSString *publicKey;

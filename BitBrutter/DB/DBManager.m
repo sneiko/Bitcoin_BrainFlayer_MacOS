@@ -14,6 +14,7 @@
     self = [super init];
     if(self) {
         [self openDatabase];
+        [self makeTablesInterface];
     }
     return self;
 }
@@ -24,6 +25,11 @@
     self.database = [FMDatabase databaseWithPath:path];
     self.database.traceExecution = true;
     [self.database open];
+}
+
+- (void) makeTablesInterface {
+    self.btcTable = [[BTCTable alloc] initWithDatabase:self.database];
+    self.txsTable = [[TXSTable alloc] initWithDatabase:self.database];
 }
 
 - (void)dealloc {

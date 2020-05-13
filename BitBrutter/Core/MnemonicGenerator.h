@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #include <CommonCrypto/CommonDigest.h>
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface MnemonicGenerator : NSObject
 
+@property(strong, nonatomic) NSString *dictinaryPath;
+@property(assign, nonatomic) NSInteger *wordsCount;
+@property(strong, nonatomic) NSData *fileData;
+
 // Helpers
 - (NSString *) generatePrivateKey: (NSString *) textData;
+- (NSMutableArray<NSString *> *) generate;
 
 @end
-
-NS_ASSUME_NONNULL_END
