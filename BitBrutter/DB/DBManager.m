@@ -19,7 +19,8 @@
 }
 
 - (void)openDatabase {
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Base.db"];
+    NSString *dbname = [InfoPlistHelpers dbName];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dbname];
     self.database = [FMDatabase databaseWithPath:path];
     self.database.traceExecution = true;
     [self.database open];

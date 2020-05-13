@@ -19,12 +19,10 @@
     return self;
 }
 
-- (void) addRowBtc: (WalletEntity *) data {
-    
-}
-
 - (BOOL)add:(WalletEntity *)data {
-    NSString *query = @"de";
+    NSString *query = [NSString stringWithFormat:
+                       @"INSERT INTO txs(btc, txs, address, private, public) VALUES (%@, %@, %@, %@, %@);",
+                       data.btc, data.txs, data.address, data.privateKey, data.publicKey];
     [self.database executeQuery: query];
     return YES;
 }
@@ -45,8 +43,11 @@
     return obj;
 }
 
-- (BOOL)update:(NSObject *)data {
-    return [self.database executeUpdate: @"SELECT * FROM txs WHERE id=%d", 0];
+- (BOOL)update:(WalletEntity *)data {
+    NSString *query = [NSString stringWithFormat:
+                       @"UPDATE txs SET btc=%@, txs=%@, address=%@, private=%@, public=%@ WHERE id=%@",
+                       data.btc, data.txs, data.address, data.privateKey, data.publicKey, data._id];
+    return [self.database executeUpdate: query];
 }
 
 @end

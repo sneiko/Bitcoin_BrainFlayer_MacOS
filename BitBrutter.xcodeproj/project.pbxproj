@@ -14,6 +14,7 @@
 		D0107E40246B49B1004AD073 /* WalletEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E3F246B49B1004AD073 /* WalletEntity.m */; };
 		D0107E54246C0991004AD073 /* BTCTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E53246C0991004AD073 /* BTCTable.m */; };
 		D0107E58246C115A004AD073 /* TXSTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E57246C115A004AD073 /* TXSTable.m */; };
+		D0107E5C246C1A60004AD073 /* InfoPlistHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E5B246C1A60004AD073 /* InfoPlistHelpers.m */; };
 		D0A3D27D246B05C100CB019F /* MnemonicGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D27C246B05C100CB019F /* MnemonicGenerator.m */; };
 		D0A3D283246B145B00CB019F /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D282246B145B00CB019F /* DBManager.m */; };
 		D0A3D285246B354200CB019F /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D284246B354100CB019F /* database.db */; };
@@ -38,6 +39,8 @@
 		D0107E53246C0991004AD073 /* BTCTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTCTable.m; sourceTree = "<group>"; };
 		D0107E56246C115A004AD073 /* TXSTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSTable.h; sourceTree = "<group>"; };
 		D0107E57246C115A004AD073 /* TXSTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSTable.m; sourceTree = "<group>"; };
+		D0107E5A246C1A60004AD073 /* InfoPlistHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoPlistHelpers.h; sourceTree = "<group>"; };
+		D0107E5B246C1A60004AD073 /* InfoPlistHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoPlistHelpers.m; sourceTree = "<group>"; };
 		D0A3D27A246B05C100CB019F /* BitBrutter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BitBrutter-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0A3D27B246B05C100CB019F /* MnemonicGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MnemonicGenerator.h; sourceTree = "<group>"; };
 		D0A3D27C246B05C100CB019F /* MnemonicGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MnemonicGenerator.m; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		D00E60CF246892E400F6B0B1 /* BitBrutter */ = {
 			isa = PBXGroup;
 			children = (
+				D0107E59246C1A2E004AD073 /* Common */,
 				D0107E3A246B47EB004AD073 /* Entity */,
 				D0A3D287246B356300CB019F /* View */,
 				D0A3D286246B354800CB019F /* Resources */,
@@ -121,6 +125,15 @@
 				D0107E57246C115A004AD073 /* TXSTable.m */,
 			);
 			path = Tables;
+			sourceTree = "<group>";
+		};
+		D0107E59246C1A2E004AD073 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D0107E5A246C1A60004AD073 /* InfoPlistHelpers.h */,
+				D0107E5B246C1A60004AD073 /* InfoPlistHelpers.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		D0A3D279246B053B00CB019F /* Core */ = {
@@ -291,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0107E5C246C1A60004AD073 /* InfoPlistHelpers.m in Sources */,
 				D00E60D1246892E400F6B0B1 /* AppDelegate.swift in Sources */,
 				D0107E40246B49B1004AD073 /* WalletEntity.m in Sources */,
 				D0A3D27D246B05C100CB019F /* MnemonicGenerator.m in Sources */,

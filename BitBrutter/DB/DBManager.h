@@ -11,6 +11,7 @@
 #import <FMDB/FMDB.h>
 #import "DBManagerProtocol.h"
 #import "WalletEntity.h"
+#import "InfoPlistHelpers.h"
 
 @interface DBManager : NSObject
 
