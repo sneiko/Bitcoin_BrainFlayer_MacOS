@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @protocol DaoEntityProtocol <NSObject>
 
-@end
+@property(weak, nonatomic) FMDatabase *database;
 
-NS_ASSUME_NONNULL_END
+- (instancetype) initWithDatabase: (FMDatabase *) database;
+
+- (NSArray *) all;
+- (NSObject *) getById: (NSInteger *) _id;
+- (BOOL) add: (NSObject *) data;
+- (BOOL) update: (NSObject *) data;
+@end

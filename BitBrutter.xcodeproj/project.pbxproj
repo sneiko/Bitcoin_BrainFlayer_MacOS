@@ -3,22 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D00E60D1246892E400F6B0B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E60D0246892E400F6B0B1 /* AppDelegate.swift */; };
 		D00E60D3246892E500F6B0B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00E60D2246892E500F6B0B1 /* Assets.xcassets */; };
 		D00E60D6246892E500F6B0B1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00E60D4246892E500F6B0B1 /* MainMenu.xib */; };
+		D00E60E22468A05600F6B0B1 /* MainNSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E60E12468A05600F6B0B1 /* MainNSWindow.swift */; };
+		D0107E40246B49B1004AD073 /* WalletEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E3F246B49B1004AD073 /* WalletEntity.m */; };
+		D0107E54246C0991004AD073 /* BTCTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E53246C0991004AD073 /* BTCTable.m */; };
+		D0107E58246C115A004AD073 /* TXSTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0107E57246C115A004AD073 /* TXSTable.m */; };
+		D0A3D27D246B05C100CB019F /* MnemonicGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D27C246B05C100CB019F /* MnemonicGenerator.m */; };
+		D0A3D283246B145B00CB019F /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D282246B145B00CB019F /* DBManager.m */; };
+		D0A3D285246B354200CB019F /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D284246B354100CB019F /* database.db */; };
+		D0A3D28B246B420700CB019F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A3D288246B3CAB00CB019F /* libsqlite3.0.tbd */; };
+		ECBD405A647B17766BBED6E9 /* Pods_BitBrutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F947C788A911CAFF2BECF2BD /* Pods_BitBrutter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5084134B3E1B01ED1F9855BA /* Pods-BitBrutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitBrutter.debug.xcconfig"; path = "Target Support Files/Pods-BitBrutter/Pods-BitBrutter.debug.xcconfig"; sourceTree = "<group>"; };
 		D00E60CD246892E400F6B0B1 /* BitBrutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBrutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00E60D0246892E400F6B0B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D00E60D2246892E500F6B0B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D00E60D5246892E500F6B0B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D00E60D7246892E500F6B0B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00E60D8246892E500F6B0B1 /* BitBrutter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BitBrutter.entitlements; sourceTree = "<group>"; };
+		D00E60E12468A05600F6B0B1 /* MainNSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNSWindow.swift; sourceTree = "<group>"; };
+		D0107E3E246B49B1004AD073 /* WalletEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletEntity.h; sourceTree = "<group>"; };
+		D0107E3F246B49B1004AD073 /* WalletEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletEntity.m; sourceTree = "<group>"; };
+		D0107E44246B5325004AD073 /* DBManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManagerProtocol.h; sourceTree = "<group>"; };
+		D0107E50246C04BA004AD073 /* DaoEntityProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaoEntityProtocol.h; sourceTree = "<group>"; };
+		D0107E52246C0991004AD073 /* BTCTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTCTable.h; sourceTree = "<group>"; };
+		D0107E53246C0991004AD073 /* BTCTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTCTable.m; sourceTree = "<group>"; };
+		D0107E56246C115A004AD073 /* TXSTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSTable.h; sourceTree = "<group>"; };
+		D0107E57246C115A004AD073 /* TXSTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSTable.m; sourceTree = "<group>"; };
+		D0A3D27A246B05C100CB019F /* BitBrutter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BitBrutter-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0A3D27B246B05C100CB019F /* MnemonicGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MnemonicGenerator.h; sourceTree = "<group>"; };
+		D0A3D27C246B05C100CB019F /* MnemonicGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MnemonicGenerator.m; sourceTree = "<group>"; };
+		D0A3D27F246B140600CB019F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D0A3D281246B145B00CB019F /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		D0A3D282246B145B00CB019F /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		D0A3D284246B354100CB019F /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
+		D0A3D288246B3CAB00CB019F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F947C788A911CAFF2BECF2BD /* Pods_BitBrutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitBrutter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD7C47DB9CC08CCD5F35654 /* Pods-BitBrutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitBrutter.release.xcconfig"; path = "Target Support Files/Pods-BitBrutter/Pods-BitBrutter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +55,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A3D28B246B420700CB019F /* libsqlite3.0.tbd in Frameworks */,
+				ECBD405A647B17766BBED6E9 /* Pods_BitBrutter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		591B4C77AEAC2118B3AF1027 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5084134B3E1B01ED1F9855BA /* Pods-BitBrutter.debug.xcconfig */,
+				FDD7C47DB9CC08CCD5F35654 /* Pods-BitBrutter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D00E60C4246892E400F6B0B1 = {
 			isa = PBXGroup;
 			children = (
 				D00E60CF246892E400F6B0B1 /* BitBrutter */,
 				D00E60CE246892E400F6B0B1 /* Products */,
+				D0A3D27E246B140600CB019F /* Frameworks */,
+				591B4C77AEAC2118B3AF1027 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,13 +93,86 @@
 		D00E60CF246892E400F6B0B1 /* BitBrutter */ = {
 			isa = PBXGroup;
 			children = (
+				D0107E3A246B47EB004AD073 /* Entity */,
+				D0A3D287246B356300CB019F /* View */,
+				D0A3D286246B354800CB019F /* Resources */,
+				D0A3D280246B141700CB019F /* DB */,
+				D0A3D279246B053B00CB019F /* Core */,
 				D00E60D0246892E400F6B0B1 /* AppDelegate.swift */,
-				D00E60D2246892E500F6B0B1 /* Assets.xcassets */,
-				D00E60D4246892E500F6B0B1 /* MainMenu.xib */,
-				D00E60D7246892E500F6B0B1 /* Info.plist */,
-				D00E60D8246892E500F6B0B1 /* BitBrutter.entitlements */,
 			);
 			path = BitBrutter;
+			sourceTree = "<group>";
+		};
+		D0107E3A246B47EB004AD073 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D0107E3E246B49B1004AD073 /* WalletEntity.h */,
+				D0107E3F246B49B1004AD073 /* WalletEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		D0107E55246C112E004AD073 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				D0107E52246C0991004AD073 /* BTCTable.h */,
+				D0107E53246C0991004AD073 /* BTCTable.m */,
+				D0107E56246C115A004AD073 /* TXSTable.h */,
+				D0107E57246C115A004AD073 /* TXSTable.m */,
+			);
+			path = Tables;
+			sourceTree = "<group>";
+		};
+		D0A3D279246B053B00CB019F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3D27B246B05C100CB019F /* MnemonicGenerator.h */,
+				D0A3D27C246B05C100CB019F /* MnemonicGenerator.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D0A3D27E246B140600CB019F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3D288246B3CAB00CB019F /* libsqlite3.0.tbd */,
+				D0A3D27F246B140600CB019F /* libsqlite3.tbd */,
+				F947C788A911CAFF2BECF2BD /* Pods_BitBrutter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0A3D280246B141700CB019F /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				D0107E55246C112E004AD073 /* Tables */,
+				D0A3D281246B145B00CB019F /* DBManager.h */,
+				D0A3D282246B145B00CB019F /* DBManager.m */,
+				D0107E44246B5325004AD073 /* DBManagerProtocol.h */,
+				D0107E50246C04BA004AD073 /* DaoEntityProtocol.h */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		D0A3D286246B354800CB019F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D00E60D7246892E500F6B0B1 /* Info.plist */,
+				D00E60D8246892E500F6B0B1 /* BitBrutter.entitlements */,
+				D0A3D27A246B05C100CB019F /* BitBrutter-Bridging-Header.h */,
+				D00E60D2246892E500F6B0B1 /* Assets.xcassets */,
+				D0A3D284246B354100CB019F /* database.db */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D0A3D287246B356300CB019F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D00E60E12468A05600F6B0B1 /* MainNSWindow.swift */,
+				D00E60D4246892E500F6B0B1 /* MainMenu.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D00E60DB246892E500F6B0B1 /* Build configuration list for PBXNativeTarget "BitBrutter" */;
 			buildPhases = (
+				45CAD087EDA594450200ADAB /* [CP] Check Pods Manifest.lock */,
 				D00E60C9246892E400F6B0B1 /* Sources */,
 				D00E60CA246892E400F6B0B1 /* Frameworks */,
 				D00E60CB246892E400F6B0B1 /* Resources */,
+				BFEEAC3641E7DC24114B3B2F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -92,6 +209,7 @@
 				TargetAttributes = {
 					D00E60CC246892E400F6B0B1 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -120,10 +238,53 @@
 			files = (
 				D00E60D3246892E500F6B0B1 /* Assets.xcassets in Resources */,
 				D00E60D6246892E500F6B0B1 /* MainMenu.xib in Resources */,
+				D0A3D285246B354200CB019F /* database.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45CAD087EDA594450200ADAB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BitBrutter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFEEAC3641E7DC24114B3B2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BitBrutter/Pods-BitBrutter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BitBrutter/Pods-BitBrutter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitBrutter/Pods-BitBrutter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D00E60C9246892E400F6B0B1 /* Sources */ = {
@@ -131,6 +292,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00E60D1246892E400F6B0B1 /* AppDelegate.swift in Sources */,
+				D0107E40246B49B1004AD073 /* WalletEntity.m in Sources */,
+				D0A3D27D246B05C100CB019F /* MnemonicGenerator.m in Sources */,
+				D00E60E22468A05600F6B0B1 /* MainNSWindow.swift in Sources */,
+				D0107E58246C115A004AD073 /* TXSTable.m in Sources */,
+				D0107E54246C0991004AD073 /* BTCTable.m in Sources */,
+				D0A3D283246B145B00CB019F /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,40 +430,47 @@
 		};
 		D00E60DC246892E500F6B0B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5084134B3E1B01ED1F9855BA /* Pods-BitBrutter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BitBrutter/BitBrutter.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BitBrutter/Resources/BitBrutter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ELDYT74352;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = BitBrutter/Info.plist;
+				INFOPLIST_FILE = BitBrutter/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fdev.BitBrutter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BitBrutter/Resources/BitBrutter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		D00E60DD246892E500F6B0B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDD7C47DB9CC08CCD5F35654 /* Pods-BitBrutter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BitBrutter/BitBrutter.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BitBrutter/Resources/BitBrutter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ELDYT74352;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = BitBrutter/Info.plist;
+				INFOPLIST_FILE = BitBrutter/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fdev.BitBrutter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BitBrutter/Resources/BitBrutter-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

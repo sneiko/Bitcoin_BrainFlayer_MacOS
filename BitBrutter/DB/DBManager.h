@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import <sqlite3.h>
+#import <FMDB/FMDB.h>
+#import "DBManagerProtocol.h"
+#import "WalletEntity.h"
 
 @interface DBManager : NSObject
 
-@end
+@property(weak, nonatomic) id<DBManagerProtocol> delegate;
+@property(strong, nonatomic) FMDatabase *database;
 
-NS_ASSUME_NONNULL_END
+@end

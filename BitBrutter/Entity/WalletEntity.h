@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FMDB/FMDB.h>
 
-@interface BTCEntity : NSObject
+@interface WalletEntity : NSObject
 @property(assign, nonatomic) NSInteger *_id;
 @property(assign, nonatomic) NSInteger *btc;
 @property(assign, nonatomic) NSInteger *txs;

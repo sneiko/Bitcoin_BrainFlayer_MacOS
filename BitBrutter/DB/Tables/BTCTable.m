@@ -9,6 +9,7 @@
 #import "BTCTable.h"
 
 @implementation BTCTable
+@synthesize database;
 
 - (instancetype) initWithDatabase: (FMDatabase *) database {
     self = [super init];

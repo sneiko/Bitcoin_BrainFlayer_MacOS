@@ -6,9 +6,9 @@
 //  Copyright © 2020 F Developers. All rights reserved.
 //
 
-#import "BTCEntity.h"
+#import "WalletEntity.h"
 
-@implementation BTCEntity
+@implementation WalletEntity
 
 @synthesize btc;
 @synthesize txs;

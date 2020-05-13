@@ -11,8 +11,6 @@
 #import "DaoEntityProtocol.h"
 #import "DBManager.h"
 
-@interface BTCTable<BTCEntity> : NSObject<DaoEntityProtocol>
-
-@property(weak, nonatomic) FMDatabase *database;
+@interface BTCTable<WalletEntity> : NSObject<DaoEntityProtocol>
 
 @end
