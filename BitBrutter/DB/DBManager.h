@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
-#import <FMDB/FMDB.h>
+#import "FMDB.h"
 #import "DBManagerProtocol.h"
 #import "WalletEntity.h"
 #import "InfoPlistHelpers.h"

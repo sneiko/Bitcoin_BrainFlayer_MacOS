@@ -9,9 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 #include <CommonCrypto/CommonDigest.h>
+#include "LogDelegate.h"
+
 
 @interface MnemonicGenerator : NSObject
 
+- (instancetype) initWithDictinaryPath: (NSString *) path
+                            wordsCount: (NSInteger *) wordsCount
+                           logDelegate: (id<LogDelegate>) logDelegate;
+
+@property(weak, nonatomic) id<LogDelegate> logDelegate;
 @property(strong, nonatomic) NSString *dictinaryPath;
 @property(assign, nonatomic) NSInteger *wordsCount;
 @property(strong, nonatomic) NSData *fileData;

@@ -16,4 +16,9 @@
     return [dict objectForKey: @"DB_Name"];
 }
 
++ (NSString *) massCheckURL {
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"urls" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    return [dict objectForKey: @"mass_check"];
+}
 @end

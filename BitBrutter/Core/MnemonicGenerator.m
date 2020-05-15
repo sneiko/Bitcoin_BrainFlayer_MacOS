@@ -10,18 +10,21 @@
 
 @implementation MnemonicGenerator
 
-- (instancetype) initWithDictinaryPath: (NSString *) path charInWord: (NSInteger *) wordsCount {
+- (instancetype) initWithDictinaryPath: (NSString *) path
+                            wordsCount: (NSInteger *) wordsCount
+                           logDelegate: (id<LogDelegate>) logDelegate {
     self = [super init];
     if(self) {
         self.dictinaryPath = path;
         self.wordsCount = wordsCount;
+        self.logDelegate = logDelegate;
         
         NSFileHandle * fileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter addObserver:self
-                            selector:@selector(fileDataNotification:)
-                            name:NSFileHandleReadCompletionNotification
-                            object:fileHandle];
+                               selector:@selector(fileDataNotification:)
+                                   name:NSFileHandleReadCompletionNotification
+                                 object:fileHandle];
         
         [fileHandle readInBackgroundAndNotify];
         NSLog(@"Start read file");
@@ -56,6 +59,7 @@
                 }
             }
             [sentenceArray addObject: sentence];
+            [self.logDelegate printToLog:LogMessageTypeSuccess message: [NSString stringWithFormat:@"[MN] %@", sentence]];
         }
     }
     return sentenceArray;

@@ -8,10 +8,6 @@
 
 import Cocoa
 
-enum LogMessageType {
-    case SUCCESS, WARNING, ERROR
-}
-
 class MainNSWindow: NSWindow {
     
     @IBOutlet weak var logTxt: NSTextView!
@@ -20,8 +16,6 @@ class MainNSWindow: NSWindow {
     
     @IBOutlet weak var dictinaryButton: NSButton!
     @IBOutlet weak var dictinaryTxt: NSTextField!
-    @IBOutlet weak var passHashFilenameTxt: NSTextField!
-    @IBOutlet weak var prufFilenameTxt: NSTextField!
     
     @IBOutlet weak var threadsNumberLabel: NSTextField!
     
@@ -30,18 +24,25 @@ class MainNSWindow: NSWindow {
     @IBOutlet weak var txsLbl: NSTextField!
     @IBOutlet weak var withBtcLbl: NSTextField!
     @IBOutlet weak var sumCashLbl: NSTextField!
-    
-    @IBOutlet weak var loadingIndicator: NSLevelIndicator!
+    @IBOutlet weak var activeThreadsLbl: NSTextField!
     
     // MARK: Private vars
-    var dictinaryFilePath = ""
-    
-    @IBAction func threadsStepperAction(_ sender: Any) {
+    private var dictinaryFilePath = ""
+    private var threadsCount = 5 {
+        didSet {
+            threadsNumberLabel.stringValue = "Threads: \(threadsCount)"
+        }
     }
     
-    @IBAction func openDictinary(_ sender: Any) {
-        let dialog = NSOpenPanel();
+    @IBAction func threadsStepperAction(_ sender: NSStepper) {
+        threadsCount = sender.integerValue
+    }
+    
+    @IBAction func openDictinary(_ sender: NSButton) {
         
+        changeUiState(isEnable: false)
+        
+        let dialog = NSOpenPanel();
         dialog.title                   = "Choose a .txt file";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
@@ -51,6 +52,7 @@ class MainNSWindow: NSWindow {
         dialog.allowedFileTypes        = ["txt"];
         
         guard dialog.runModal() == .OK else {
+            changeUiState(isEnable: true)
             return
         }
         
@@ -58,23 +60,65 @@ class MainNSWindow: NSWindow {
             dictinaryFilePath = result.path
             dictinaryTxt.stringValue = result.path
             
-            log(type: .SUCCESS, row: "Open dictinary: \(result.path)")
+            changeUiState(isEnable: true)
+            
+            log(type: .success, row: "Open dictinary: \(result.path)")
         }
     }
     
-    @IBAction func startAction(_ sender: Any) {
-        log(type: .SUCCESS, row: "Start ...")
+    @IBAction func startAction(_ sender: NSButton) {
+
+        guard checkImpotantVar() else {
+            return
+        }
+        
+        log(type: .success, row: "Start ...")
+        
+        changeUiState(isEnable: false)
+        var wordCount: Int = 8
+        let mnemonicGenerator = MnemonicGenerator.init(dictinaryPath: dictinaryFilePath,
+                                                       wordsCount: &wordCount,
+                                                       logDelegate: self)
+        mnemonicGenerator?.generate()
+    }
+    
+    private func checkImpotantVar() -> Bool {
+        guard dictinaryFilePath != "" else {
+            log(type: .error, row: "Choose dictinary file for continue!")
+            return false
+        }
+        
+        guard threadsCount != 0 else {
+            log(type: .error, row: "Threads need be one or more!")
+            return false
+        }
+        return true
+    }
+    
+    private func changeUiState(isEnable: Bool) {
+        startButton.isEnabled = isEnable
+        dictinaryButton.isEnabled = isEnable
+    }
+}
+
+//    MARK: Work with log
+extension MainNSWindow: LogDelegate {
+    
+    func print(toLog type: LogMessageType, message: String!) {
+        log(type: type, row: message)
     }
     
     private func log(type: LogMessageType, row: String) {
         var color = NSColor.red
         switch type {
-        case .ERROR:
+        case .error:
             color = NSColor.red
-        case .SUCCESS:
+        case .success:
             color = NSColor.green
-        case .WARNING:
+        case .warning:
             color = NSColor.blue
+        @unknown default:
+            color = NSColor.systemPink
         }
         
         let attributesText = NSAttributedString(string: "\(row)\n", attributes: [

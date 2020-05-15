@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDB/FMDB.h>
+#import "FMDB.h"
 
 @interface WalletEntity : NSObject
 @property(assign, nonatomic) NSNumber *_id;

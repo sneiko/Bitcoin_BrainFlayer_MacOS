@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface InfoPlistHelpers : NSObject
 + (NSString *) dbName;
++ (NSString *) massCheckURL;
 @end
 
 NS_ASSUME_NONNULL_END
