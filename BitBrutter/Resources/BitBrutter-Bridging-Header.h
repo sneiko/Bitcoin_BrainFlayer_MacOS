@@ -11,3 +11,4 @@
 #import "MnemonicGenerator.h"
 #import "WalletChecker.h"
 #import "WalletCheckerDelegate.h"
+#import "MnemonicDelegate.h"

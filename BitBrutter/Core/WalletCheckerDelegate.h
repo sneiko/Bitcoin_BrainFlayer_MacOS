@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @protocol WalletCheckerDelegate <NSObject>
-- (void) massCheckCallback;
+- (void) massCheckCallback: (NSMutableArray<WalletEntity *> *) wallets;
 @end

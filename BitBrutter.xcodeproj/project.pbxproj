@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18292D1EC010A8F88663DF3B /* MnemonicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MnemonicDelegate.h; sourceTree = "<group>"; };
 		D00E60CD246892E400F6B0B1 /* BitBrutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBrutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00E60D0246892E400F6B0B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D00E60D2246892E500F6B0B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,20 +88,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		591B4C77AEAC2118B3AF1027 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		D00E60C4246892E400F6B0B1 = {
 			isa = PBXGroup;
 			children = (
 				D00E60CF246892E400F6B0B1 /* BitBrutter */,
 				D00E60CE246892E400F6B0B1 /* Products */,
 				D0A3D27E246B140600CB019F /* Frameworks */,
-				591B4C77AEAC2118B3AF1027 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +186,7 @@
 				D022D563246E8B970054680D /* WalletChecker.m */,
 				D022D567246E90D20054680D /* WalletCheckerDelegate.h */,
 				D0FC1314246ED4CE00DABDF5 /* LogDelegate.h */,
+				18292D1EC010A8F88663DF3B /* MnemonicDelegate.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";

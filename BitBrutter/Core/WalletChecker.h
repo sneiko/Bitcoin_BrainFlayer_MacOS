@@ -13,8 +13,10 @@
 
 @interface WalletChecker : NSObject
 
-//@property(weak, nonatomic) walletCheckerDelegate *delegate;
+@property(weak, nonatomic) id<WalletCheckerDelegate> delegate;
 
-//- (void) massCheck: (NSMutableArray<WalletEntity *> *) wallets;
+-(instancetype) initWithDelegate: (id<WalletCheckerDelegate>) delegate;
+
+- (void) massCheck: (NSMutableArray<WalletEntity *> *) wallets;
 
 @end

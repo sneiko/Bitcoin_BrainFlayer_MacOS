@@ -11,17 +11,21 @@
 #include <CommonCrypto/CommonDigest.h>
 #include "LogDelegate.h"
 
+@protocol MnemonicDelegate;
+
 
 @interface MnemonicGenerator : NSObject
 
 - (instancetype) initWithDictinaryPath: (NSString *) path
                             wordsCount: (NSInteger *) wordsCount
-                           logDelegate: (id<LogDelegate>) logDelegate;
+                           logDelegate: (id<LogDelegate>) logDelegate
+                           delegate: (id<MnemonicDelegate>) delegate;
 
 @property(weak, nonatomic) id<LogDelegate> logDelegate;
+@property(weak, nonatomic) id<MnemonicDelegate> delegate;
 @property(strong, nonatomic) NSString *dictinaryPath;
 @property(assign, nonatomic) NSInteger *wordsCount;
-@property(strong, nonatomic) NSData *fileData;
+@property(strong, nonatomic) NSString *fileData;
 
 // Helpers
 - (NSString *) generatePrivateKey: (NSString *) textData;

@@ -7,62 +7,59 @@
 //
 
 #import "MnemonicGenerator.h"
+#import "MnemonicDelegate.h"
 
 @implementation MnemonicGenerator
 
 - (instancetype) initWithDictinaryPath: (NSString *) path
                             wordsCount: (NSInteger *) wordsCount
-                           logDelegate: (id<LogDelegate>) logDelegate {
+                           logDelegate: (id<LogDelegate>) logDelegate
+                              delegate: (id<MnemonicDelegate>) delegate {
     self = [super init];
     if(self) {
         self.dictinaryPath = path;
         self.wordsCount = wordsCount;
         self.logDelegate = logDelegate;
-        
-        NSFileHandle * fileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        [notificationCenter addObserver:self
-                               selector:@selector(fileDataNotification:)
-                                   name:NSFileHandleReadCompletionNotification
-                                 object:fileHandle];
-        
-        [fileHandle readInBackgroundAndNotify];
-        NSLog(@"Start read file");
-        
+        self.delegate = delegate;
+
+        [logDelegate printToLog:LogMessageTypeSuccess message:@"Start reading dictionary file"];
+
+        self.fileData = [NSString stringWithContentsOfFile:path encoding:NSStringEncodingConversionAllowLossy error:nil];
+
+        [logDelegate printToLog:LogMessageTypeSuccess message:@"Dictionary file reading success"];
     }
     return self;
 }
 
-- (void) fileDataNotification: (NSNotification *)aNotification {
-    self.fileData = [aNotification object];
-    NSLog(@"Reading file notification");
-}
-
 - (NSMutableArray<NSString *> *) generate {
-    NSMutableArray *sentenceArray = [[NSMutableArray alloc] init];
+    NSMutableArray *privateKeys = [[NSMutableArray alloc] init];
     NSInteger *wordsCount = self.wordsCount;
-    
+
     if(self.fileData != nil) {
-        NSString* newStr = [NSString stringWithUTF8String:[self.fileData bytes]];
-        NSArray<NSString *> *byLines = [newStr componentsSeparatedByCharactersInSet: NSCharacterSet.newlineCharacterSet];
-        
+        NSArray<NSString *> *byLines = [self.fileData componentsSeparatedByCharactersInSet: NSCharacterSet.newlineCharacterSet];
+
+        [self.delegate wordsInDictionary:[byLines count]];
+
         for(int word = 0; word < 100; word++) {
-            NSString *sentence = @"";
+            NSMutableString *sentence = [[NSMutableString alloc] init];
             for(int i = 0; i < *wordsCount; i++) {
                 NSUInteger randomIndex = arc4random() % byLines.count;
-                NSString *randomWord = [byLines objectAtIndex: randomIndex];
-                
+                NSString *randomWord = byLines[randomIndex];
+
                 if(i == *wordsCount - 1) {
-                    [NSString stringWithFormat: @"%@%@", sentence, randomWord];
+                    [sentence appendString: randomWord];
                 } else {
-                    [NSString stringWithFormat: @"%@%@ ", sentence, randomWord];
+                    [sentence appendString:[NSString stringWithFormat:@"%@ ", randomWord]];
                 }
             }
-            [sentenceArray addObject: sentence];
-            [self.logDelegate printToLog:LogMessageTypeSuccess message: [NSString stringWithFormat:@"[MN] %@", sentence]];
+            NSString *key = [self generatePrivateKey: sentence];
+            [privateKeys addObject: key];
+            [self.logDelegate printToLog:LogMessageTypeSuccess message: [NSString stringWithFormat:@"[Mnemonic] %@", key]];
         }
+    } else {
+        NSLog(@"[ERROR]: fileData is nil");
     }
-    return sentenceArray;
+    return privateKeys;
 }
 
 
@@ -70,7 +67,7 @@
     const char* utf8chars = [textData UTF8String];
     unsigned char result[CC_SHA256_DIGEST_LENGTH];
     CC_SHA256(utf8chars, (CC_LONG)strlen(utf8chars), result);
-    
+
     NSMutableString *ret = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH*2];
     for(int i = 0; i<CC_SHA256_DIGEST_LENGTH; i++) {
         [ret appendFormat:@"%02x",result[i]];

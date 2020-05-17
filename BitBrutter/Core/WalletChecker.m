@@ -10,6 +10,14 @@
 
 @implementation WalletChecker
 
+-(instancetype) initWithDelegate: (id<WalletCheckerDelegate>) delegate {
+    self = [super init];
+    if(self) {
+        self.delegate = delegate;
+    }
+    return self;
+}
+
 - (void) massCheck: (NSMutableArray<WalletEntity *> *) wallets {
 
     NSURL *url = [NSURL URLWithString: [InfoPlistHelpers massCheckURL]];
@@ -27,6 +35,7 @@
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 //        NSString *address = jsonDic
         WalletEntity *wallet = [self findInArray:wallets by:@""];
+        
     }];
     [task resume];
 }
@@ -39,4 +48,5 @@
     firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
     return firstFoundObject;
 }
+
 @end

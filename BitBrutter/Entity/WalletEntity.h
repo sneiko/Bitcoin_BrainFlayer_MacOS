@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "FMDB.h"
 
+typedef NS_ENUM(NSInteger, CheckerCallBack) {
+    CheckerCallBackSuccess,
+    CheckerCallBackTXS,
+    CheckerCallBackError,
+    CheckerCallBackNone
+};
+
 @interface WalletEntity : NSObject
 @property(assign, nonatomic) NSNumber *_id;
 @property(assign, nonatomic) NSNumber *btc;
@@ -16,6 +23,7 @@
 @property(strong, nonatomic) NSString *address;
 @property(strong, nonatomic) NSString *privateKey;
 @property(strong, nonatomic) NSString *publicKey;
+@property(assign, nonatomic) CheckerCallBack *status;
 
 - (instancetype)initFromFMResultSet: (FMResultSet *) data;
 @end
